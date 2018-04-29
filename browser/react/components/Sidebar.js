@@ -32,7 +32,7 @@ export default class Sidebar extends Component {
         <hr />
         <ul className="list-unstyled">
           {
-            playlists.map(playlist => {
+            !!playlists && playlists.map(playlist => {
               return (
               <li key={playlist.id} className="playlist-item menu-item">
                 <Link to={`/playlists/${playlist.id}`}>{playlist.name}</Link>

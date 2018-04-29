@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+
+
 import StatefulAlbums from './StatefulAlbums';
-import StatefulArtists from './StatefulArtists';
-import SingleArtist from './SingleArtist';
-import SingleAlbum from './SingleAlbum';
+// import StatefulArtists from './StatefulArtists';
+// import SingleArtist from './SingleArtist';
+// import SingleAlbum from './SingleAlbum';
 import Sidebar from './Sidebar';
-import Player from './Player';
-import NewPlaylist from './NewPlaylist';
-import Playlist from './Playlist';
+// import Player from './Player';
+// import NewPlaylist from './NewPlaylist';
+// import Playlist from './Playlist';
 
 export default class Main extends Component {
 
@@ -18,27 +20,27 @@ export default class Main extends Component {
       playlists: []
     };
 
-    this.addPlaylist = this.addPlaylist.bind(this);
+    // this.addPlaylist = this.addPlaylist.bind(this);
   }
 
-  componentDidMount () {
-    axios.get('/api/playlists')
-      .then(res => res.data)
-      .then(playlists => this.setState({ playlists }));
-  }
+  // componentDidMount () {
+  //   axios.get('/api/playlists')
+  //     .then(res => res.data)
+  //     .then(playlists => this.setState({ playlists }));
+  // }
 
-  addPlaylist (name) {
-    axios.post('/api/playlists', { name })
-      .then(res => res.data)
-      .then(playlist => {
-        this.setState({ playlists: [...this.state.playlists, playlist] })
-      });
-  }
+  // addPlaylist (name) {
+  //   axios.post('/api/playlists', { name })
+  //     .then(res => res.data)
+  //     .then(playlist => {
+  //       this.setState({ playlists: [...this.state.playlists, playlist] })
+  //     });
+  // }
 
   render () {
 
-    const playlists = this.state.playlists;
-    const addPlaylist = this.addPlaylist;
+    // const playlists = this.state.playlists;
+    // const addPlaylist = this.addPlaylist;
     // <Route exact path="/albums" component={StatefulAlbums} />
     // <Route path="/albums/:albumId" component={SingleAlbum} />
     // <Route exact path="/artists" component={StatefulArtists} />
@@ -50,14 +52,13 @@ export default class Main extends Component {
       <Router>
         <div id="main" className="container-fluid">
           <div className="col-xs-2">
-            <Sidebar playlists={playlists} />
+            <Sidebar />
           </div>
           <div className="col-xs-10">
             <Switch>
               <Route component={StatefulAlbums} />
             </Switch>
           </div>
-          <Player />
         </div>
     </Router>
     );
